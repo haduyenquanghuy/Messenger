@@ -14,6 +14,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let appearance = UINavigationBarAppearance()
+        // Set this to de-transparent the navigation bar on iOS 15 or above
+//        appearance.configureWithOpaqueBackground()
+//        appearance.backgroundColor = .white
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
         return true
     }
 

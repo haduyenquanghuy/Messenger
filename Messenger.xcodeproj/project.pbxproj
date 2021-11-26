@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0DF79E7627508FFE000784AD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF79E7527508FFE000784AD /* Extensions.swift */; };
 		BF3ACD09274FC870003383BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3ACD08274FC870003383BE /* AppDelegate.swift */; };
 		BF3ACD0B274FC870003383BE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3ACD0A274FC870003383BE /* SceneDelegate.swift */; };
 		BF3ACD0D274FC870003383BE /* ConversationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3ACD0C274FC870003383BE /* ConversationsViewController.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0DF79E7527508FFE000784AD /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		BF3ACD05274FC870003383BE /* Messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Messenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF3ACD08274FC870003383BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF3ACD0A274FC870003383BE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 			children = (
 				BF3ACD08274FC870003383BE /* AppDelegate.swift */,
 				BF3ACD0A274FC870003383BE /* SceneDelegate.swift */,
+				0DF79E7527508FFE000784AD /* Extensions.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 				BF3ACD2B274FCDB3003383BE /* NewConversationViewController.swift in Sources */,
 				BF3ACD0D274FC870003383BE /* ConversationsViewController.swift in Sources */,
 				BF3ACD29274FCD86003383BE /* VideoPlayerViewController.swift in Sources */,
+				0DF79E7627508FFE000784AD /* Extensions.swift in Sources */,
 				BF3ACD09274FC870003383BE /* AppDelegate.swift in Sources */,
 				BF3ACD2D274FCDD2003383BE /* ProfileViewController.swift in Sources */,
 				BF3ACD0B274FC870003383BE /* SceneDelegate.swift in Sources */,
@@ -369,7 +373,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QQ74U7T9T3;
+				DEVELOPMENT_TEAM = 946D9F24MX;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Messenger/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -383,7 +387,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.luvina.Messenger;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.luvina.Messenger-1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -398,7 +402,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QQ74U7T9T3;
+				DEVELOPMENT_TEAM = 946D9F24MX;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Messenger/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -412,7 +416,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.luvina.Messenger;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.luvina.Messenger-1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

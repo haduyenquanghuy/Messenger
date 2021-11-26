@@ -18,6 +18,7 @@ class ConversationsViewController: UIViewController {
         super.viewDidAppear(animated)
         
         let isLoggedIn = UserDefaults.standard.bool(forKey: "logged_in")
+        
         if !isLoggedIn {
             let vc = LoginViewController()
             let nav = UINavigationController(rootViewController: vc)

@@ -8,6 +8,8 @@
 import UIKit
 import Firebase
 import FBSDKLoginKit
+import GoogleSignIn
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
     
@@ -74,8 +76,15 @@ class LoginViewController: UIViewController {
         return button
     }()
     
+    private let googleLoginButton: GIDSignInButton = {
+        let button = GIDSignInButton()
+        button.addTarget(self, action: #selector(tapGoogleSignInButton), for: .touchUpInside)
+        return button
+    } ()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         title = "Log In"
         view.backgroundColor = .white
         
@@ -95,6 +104,7 @@ class LoginViewController: UIViewController {
         scrollView.addSubview(passwordField)
         scrollView.addSubview(loginButton)
         scrollView.addSubview(facebookLoginButton)
+        scrollView.addSubview(googleLoginButton)
     }
     
     override func viewDidLayoutSubviews() {
@@ -124,6 +134,69 @@ class LoginViewController: UIViewController {
                                            y: loginButton.bottom + 10,
                                            width: scrollView.width - 60,
                                            height: 52)
+        
+        googleLoginButton.frame = CGRect(x: 30,
+                                         y: facebookLoginButton.bottom + 10,
+                                         width: scrollView.width - 60,
+                                         height: 52)
+    }
+    
+    @objc private func tapGoogleSignInButton() {
+        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+        
+        // Create Google Sign In configuration object.
+        let config = GIDConfiguration(clientID: clientID)
+        
+        // Start the sign in flow!
+        GIDSignIn.sharedInstance.signIn(with: config, presenting: self) {[weak self] user, error in
+            
+            if let error = error {
+                print("Failed to sign with Google: \(error)")
+                return
+            }
+            
+            print("Did sign in with user")
+            guard let email = user?.profile?.email,
+                  let firstName = user?.profile?.givenName,
+                  let lastName = user?.profile?.familyName else {
+                      return
+                  }
+            
+            DatabaseManager.shared.userExists(with: email) { exists in
+                if !exists {
+                    DatabaseManager.shared.insertUser(with: ChatAppUser(firstName: firstName, lastName: lastName, emailAddress: email))
+                }
+            }
+            guard (user?.authentication) != nil else {
+                print("Missing auth object off of google user")
+                return
+            }
+            
+            guard
+                let authentication = user?.authentication,
+                let idToken = authentication.idToken
+            else {
+                return
+            }
+            
+            let credential = GoogleAuthProvider.credential(withIDToken: idToken,
+                                                           accessToken: authentication.accessToken)
+            
+            // trade google credential to FB credential
+            FirebaseAuth.Auth.auth().signIn(with: credential) { authResult, error in
+                guard authResult != nil, error == nil else {
+                    print("Failed to log in with Google credential")
+                    return
+                }
+                guard let strongSelf = self else {
+                    return
+                }
+                print("Successfully sign in with Google credential")
+                strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+            }
+            
+            
+        }
     }
     
     @objc private func loginButtonTapped() {

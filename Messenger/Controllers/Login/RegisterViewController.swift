@@ -221,8 +221,6 @@ class RegisterViewController: UIViewController {
             }
             
         }
-        
-        
     }
     
     func alertUserLoginError(message: String = "Please enter all information to create a new account.") {

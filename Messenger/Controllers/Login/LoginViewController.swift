@@ -10,8 +10,11 @@ import Firebase
 import FBSDKLoginKit
 import GoogleSignIn
 import FirebaseAuth
+import JGProgressHUD
 
 class LoginViewController: UIViewController {
+    
+    private let spinner = JGProgressHUD(style: .dark)
     
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -147,8 +150,18 @@ class LoginViewController: UIViewController {
         // Create Google Sign In configuration object.
         let config = GIDConfiguration(clientID: clientID)
         
+        spinner.show(in: view)
+        
         // Start the sign in flow!
         GIDSignIn.sharedInstance.signIn(with: config, presenting: self) {[weak self] user, error in
+            
+            guard let strongSelf = self else {
+                return
+            }
+            
+            DispatchQueue.main.async {
+                strongSelf.spinner.dismiss(animated: true)
+            }
             
             if let error = error {
                 print("Failed to sign with Google: \(error)")
@@ -210,10 +223,16 @@ class LoginViewController: UIViewController {
             return
         }
         
+        spinner.show(in: view)
+        
         // Firebase Log In
         FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password, completion: {[weak self] authResult, error in
             guard let strongSelf = self else {
                 return
+            }
+            
+            DispatchQueue.main.async {
+                strongSelf.spinner.dismiss(animated: true)
             }
             
             guard let result = authResult, error == nil else {
@@ -261,13 +280,20 @@ extension LoginViewController: LoginButtonDelegate {
         // no operation
     }
     
+    func loginButtonWillLogin(_ loginButton: FBLoginButton) -> Bool {
+        spinner.show(in: view)
+        return true
+    }
+
     
     func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
         guard let token = result?.token?.tokenString else {
             print("User failed to log in with facebook")
+            DispatchQueue.main.async {
+                self.spinner.dismiss(animated: true)
+            }
             return
         }
-        
         
         let facebookRequest = FBSDKLoginKit.GraphRequest(graphPath: "me",
                                                          parameters: ["fields": "email, name"],
@@ -277,6 +303,9 @@ extension LoginViewController: LoginButtonDelegate {
         facebookRequest.start { _, result, error in
             guard let result = result, error == nil else {
                 print("Failed to make facebook graph request")
+                DispatchQueue.main.async {
+                    self.spinner.dismiss(animated: true)
+                }
                 return
             }
             print("\(result)")
@@ -310,11 +339,18 @@ extension LoginViewController: LoginButtonDelegate {
                 
                 guard authResult != nil, error == nil else {
                     print("Facebook credential login failed, MFA may be needed")
+                    DispatchQueue.main.async {
+                        strongSelf.spinner.dismiss(animated: true)
+                    }
                     return
                 }
                 
                 print("Successfully logged user in")
                 strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+                
+                DispatchQueue.main.async {
+                    strongSelf.spinner.dismiss(animated: true)
+                }
             }
         }
         

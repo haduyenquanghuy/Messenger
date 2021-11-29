@@ -21,6 +21,7 @@
 		BF3ACD29274FCD86003383BE /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3ACD28274FCD86003383BE /* VideoPlayerViewController.swift */; };
 		BF3ACD2B274FCDB3003383BE /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3ACD2A274FCDB3003383BE /* NewConversationViewController.swift */; };
 		BF3ACD2D274FCDD2003383BE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3ACD2C274FCDD2003383BE /* ProfileViewController.swift */; };
+		BFAE84572755189B004EB3F2 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAE84562755189B004EB3F2 /* ChatViewController.swift */; };
 		BFE0C5922752050100DB4347 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BFE0C5912752050100DB4347 /* GoogleService-Info.plist */; };
 		C7E53B8646DC3B975DF94901 /* Pods_Messenger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80798469A9050BA77F33730C /* Pods_Messenger.framework */; };
 /* End PBXBuildFile section */
@@ -45,6 +46,7 @@
 		BF3ACD28274FCD86003383BE /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
 		BF3ACD2A274FCDB3003383BE /* NewConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
 		BF3ACD2C274FCDD2003383BE /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		BFAE84562755189B004EB3F2 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		BFE0C5912752050100DB4347 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -145,6 +147,7 @@
 				BF3ACD28274FCD86003383BE /* VideoPlayerViewController.swift */,
 				BF3ACD2A274FCDB3003383BE /* NewConversationViewController.swift */,
 				BF3ACD2C274FCDD2003383BE /* ProfileViewController.swift */,
+				BFAE84562755189B004EB3F2 /* ChatViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				BF3ACD09274FC870003383BE /* AppDelegate.swift in Sources */,
 				BF3ACD2D274FCDD2003383BE /* ProfileViewController.swift in Sources */,
 				BF3ACD0B274FC870003383BE /* SceneDelegate.swift in Sources */,
+				BFAE84572755189B004EB3F2 /* ChatViewController.swift in Sources */,
 				BF3ACD27274FCD70003383BE /* PhotoViewerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

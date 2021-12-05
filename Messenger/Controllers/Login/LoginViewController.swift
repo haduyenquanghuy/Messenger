@@ -177,6 +177,7 @@ class LoginViewController: UIViewController {
             
             // user email to query get image
             UserDefaults.standard.set(email, forKey: "email")
+            UserDefaults.standard.set("\(firstName) \(lastName)", forKey: "name")
             
             DatabaseManager.shared.userExists(with: email) { exists in
                 if !exists {
@@ -272,13 +273,29 @@ class LoginViewController: UIViewController {
             }
             
             guard let result = authResult, error == nil else {
-                print("Failed to log in user with emailL \(email)")
+                print("Failed to log in user with email \(email)")
                 return
             }
             
             let user = result.user
             
+            let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
+            
             UserDefaults.standard.set(email, forKey: "email")
+            DatabaseManager.shared.getDataFor(path: safeEmail, completion: { result in
+                switch result {
+                case .success(let data):
+                    guard let userData = data as? [String: Any],
+                    let firstName = userData["first_name"] as? String,
+                    let lastName = userData["last_name"] as? String else {
+                        return
+                    }
+                    UserDefaults.standard.set("\(firstName) \(lastName)", forKey: "name")
+                case .failure(let error):
+                    print("Failed to read data with error\(error)")
+                }
+            })
+            
             
             print("Logged In User: \(user)")
             strongSelf.navigationController?.dismiss(animated: true, completion: nil)
@@ -361,6 +378,7 @@ extension LoginViewController: LoginButtonDelegate {
             }
             
             UserDefaults.standard.set(email, forKey: "email")
+            UserDefaults.standard.set("\(firstName) \(lastName)", forKey: "name")
             
             DatabaseManager.shared.userExists(with: email) { exist in
                 if !exist {

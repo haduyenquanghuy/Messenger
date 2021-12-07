@@ -350,23 +350,35 @@ extension DatabaseManager {
                 if type == "photo" {
                     // photo
                     guard let imageURL = URL(string: content),
-                    let placeHolder = UIImage(systemName: "plus") else {
-                        return nil
-                    }
+                          let placeHolder = UIImage(systemName: "plus") else {
+                              return nil
+                          }
                     let media = Media(url: imageURL,
                                       image: nil,
                                       placeholderImage: placeHolder,
                                       size: CGSize(width: 300, height: 300))
                     
                     kind = .photo(media)
+                } else if type == "video" {
+                    // video
+                    guard let videoURL = URL(string: content),
+                          let placeHolder = UIImage(systemName: "image_placeholder") else {
+                              return nil
+                          }
+                    let media = Media(url: videoURL,
+                                      image: nil,
+                                      placeholderImage: placeHolder,
+                                      size: CGSize(width: 300, height: 300))
+                    
+                    kind = .video(media)
                 } else {
                     kind = .text(content)
                 }
                 
-//
-//                guard kind != nil else {
-//                    return nil
-//                }
+                //
+                //                guard kind != nil else {
+                //                    return nil
+                //                }
                 
                 let sender = Sender(photoURL: "", senderId: senderEmail, displayName: name)
                 
@@ -414,7 +426,10 @@ extension DatabaseManager {
                     message = targetURLString
                 }
                 break
-            case .video(_):
+            case .video(let mediaItem):
+                if let targetURLString = mediaItem.url?.absoluteString {
+                    message = targetURLString
+                }
                 break
             case .location(_):
                 break

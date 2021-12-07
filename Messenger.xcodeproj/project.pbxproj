@@ -24,6 +24,7 @@
 		BF8ECF2B275BAE4200F77100 /* ConversationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8ECF2A275BAE4200F77100 /* ConversationTableViewCell.swift */; };
 		BFAE84572755189B004EB3F2 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAE84562755189B004EB3F2 /* ChatViewController.swift */; };
 		BFAE84592755957E004EB3F2 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAE84582755957E004EB3F2 /* StorageManager.swift */; };
+		BFB786FC275FA21500174650 /* NewConversationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB786FB275FA21500174650 /* NewConversationTableViewCell.swift */; };
 		BFE0C5922752050100DB4347 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BFE0C5912752050100DB4347 /* GoogleService-Info.plist */; };
 		C7E53B8646DC3B975DF94901 /* Pods_Messenger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80798469A9050BA77F33730C /* Pods_Messenger.framework */; };
 /* End PBXBuildFile section */
@@ -51,6 +52,7 @@
 		BF8ECF2A275BAE4200F77100 /* ConversationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationTableViewCell.swift; sourceTree = "<group>"; };
 		BFAE84562755189B004EB3F2 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		BFAE84582755957E004EB3F2 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		BFB786FB275FA21500174650 /* NewConversationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationTableViewCell.swift; sourceTree = "<group>"; };
 		BFE0C5912752050100DB4347 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -140,6 +142,7 @@
 				BF3ACD20274FCBB2003383BE /* Storyboards */,
 				BF3ACD11274FC871003383BE /* Assets.xcassets */,
 				BF8ECF2A275BAE4200F77100 /* ConversationTableViewCell.swift */,
+				BFB786FB275FA21500174650 /* NewConversationTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 			files = (
 				BF3ACD23274FCD33003383BE /* LoginViewController.swift in Sources */,
 				0D11CC2D275225F60062B2DC /* DatabaseManager.swift in Sources */,
+				BFB786FC275FA21500174650 /* NewConversationTableViewCell.swift in Sources */,
 				BF3ACD25274FCD56003383BE /* RegisterViewController.swift in Sources */,
 				BF3ACD2B274FCDB3003383BE /* NewConversationViewController.swift in Sources */,
 				BF3ACD0D274FC870003383BE /* ConversationsViewController.swift in Sources */,

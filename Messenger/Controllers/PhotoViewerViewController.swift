@@ -10,7 +10,7 @@ import SDWebImage
 
 
 class PhotoViewerViewController: UIViewController {
-
+    
     private let url: URL
     
     private let imageView: UIImageView = {
@@ -19,7 +19,7 @@ class PhotoViewerViewController: UIViewController {
         
         return imageView
     }()
-
+    
     init(with url:URL) {
         self.url = url
         super.init(nibName: nil, bundle: nil)

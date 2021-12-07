@@ -286,10 +286,10 @@ class LoginViewController: UIViewController {
                 switch result {
                 case .success(let data):
                     guard let userData = data as? [String: Any],
-                    let firstName = userData["first_name"] as? String,
-                    let lastName = userData["last_name"] as? String else {
-                        return
-                    }
+                          let firstName = userData["first_name"] as? String,
+                          let lastName = userData["last_name"] as? String else {
+                              return
+                          }
                     UserDefaults.standard.set("\(firstName) \(lastName)", forKey: "name")
                 case .failure(let error):
                     print("Failed to read data with error\(error)")

@@ -79,6 +79,8 @@ class LoginViewController: UIViewController {
         return button
     }()
     
+    private var loginObserver: NSObjectProtocol?
+    
     private let googleLoginButton: GIDSignInButton = {
         let button = GIDSignInButton()
         button.addTarget(self, action: #selector(tapGoogleSignInButton), for: .touchUpInside)
@@ -90,6 +92,13 @@ class LoginViewController: UIViewController {
         
         title = "Log In"
         view.backgroundColor = .white
+        
+        loginObserver = NotificationCenter.default.addObserver(forName: .didLogInNotification, object: nil, queue: .main, using: {[weak self] _ in
+            guard let strongSelf = self else {
+                return
+            }
+            strongSelf.navigationController?.dismiss(animated: true, completion:nil)
+        })
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Register",
                                                             style: .done,

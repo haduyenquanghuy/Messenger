@@ -27,7 +27,6 @@
         <!--Profile-->
         <scene sceneID="1Kc-m7-GZS">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9nh-BB-e99" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="djr-fP-gpd" customClass="ProfileViewController" customModule="Messenger" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hCc-fi-f8j">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -52,6 +51,7 @@
                         <outlet property="tableView" destination="Bi8-0i-z9x" id="wsr-QV-sFc"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9nh-BB-e99" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="725" y="793"/>
         </scene>
@@ -73,11 +73,11 @@
             </objects>
             <point key="canvasLocation" x="223" y="-610"/>
         </scene>
-        <!--Chat-->
+        <!--Chats-->
         <scene sceneID="JR3-Ty-xR6">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="urn-Fm-lOn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Chat" id="d5E-6s-RKF"/>
+                    <tabBarItem key="tabBarItem" title="Chats" image="message" catalog="system" id="d5E-6s-RKF"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="8BI-OQ-VB1">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -96,7 +96,7 @@
         <scene sceneID="S4I-Ib-Jsj">
             <objects>
                 <navigationController id="CeJ-Js-Km1" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profiile" id="DVi-FN-SaR"/>
+                    <tabBarItem key="tabBarItem" title="Profiile" image="person.circle" catalog="system" id="DVi-FN-SaR"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Vx6-qn-M5X">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -111,6 +111,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="message" catalog="system" width="128" height="113"/>
+        <image name="person.circle" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

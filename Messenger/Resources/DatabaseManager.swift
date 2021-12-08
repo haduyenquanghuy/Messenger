@@ -45,13 +45,12 @@ extension DatabaseManager{
         // Firebase database allows you to observe value changes on any entry in your no SQL DB
         // by specifying the child that you want to observe for
         // and specifying what type of observation you want
-        var safeEmail = email.replacingOccurrences(of: ".", with: "-")
-        safeEmail = safeEmail.replacingOccurrences(of: "@", with: "-")
+        let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
         
         database.child(safeEmail).observeSingleEvent(of: .value, with: { snapshot in
             // this snapshot has a value property off of it that can be optional if doesn't exist
             // if has email -> call completion; pass value = true, else value = false;
-            guard snapshot.value as? String != nil else {
+            guard snapshot.value as? [String: Any] != nil else {
                 completion(false)
                 return
             }
